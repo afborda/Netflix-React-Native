@@ -1,0 +1,12 @@
+{
+  "name": "netflixtt",
+  "displayName": "netflixtt",
+  "expo": {
+    "name": "netflixtt",
+    "slug": "netflixtt",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
