@@ -5,6 +5,7 @@ import TabHomeScreen from "../page/TabHomeScreen";
 import TabMovieList from "../page/TabMovieList";
 import TabDownload from "../page/TabDownload";
 import CustomTabBar from "../components/CustomTabBar";
+import HomeStack from "./HomeStack";
 import { Image } from "react-native";
 
 const MainTab = () => {
@@ -24,7 +25,7 @@ const MainTab = () => {
       />
       <Tab.Screen
         name="TabMovieList"
-        component={TabMovieList}
+        component={HomeStack}
         options={{ tabBarLabel: "Movie" }}
       />
       <Tab.Screen
