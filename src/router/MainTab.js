@@ -12,45 +12,16 @@ const MainTab = () => {
 
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let imgSource = null;
-
-          switch (route.name) {
-            case "TabHome":
-              imgSource = require("../assets/home.png");
-
-              break;
-            case "TabMovieList":
-              imgSource = require("../assets/play-circle.png");
-
-              break;
-            case "TabDownload":
-              imgSource = require("../assets/downloads.png");
-
-              break;
-
-            default:
-              break;
-          }
-          return <Image source={imgSource} />;
-        },
-      })}
-      tabBarOptions={{
-        activeTintColor: "#fff",
-        style: { backgroundColor: "#171717" },
-        labelStyle: {
-          marginTop: -8,
-          marginBottom: 5,
-          fontSize: 10,
-          fontWeight: "bold",
-        },
-      }}
+      initialRouteName="TabMovieList"
+      tabBar={(props) => <CustomTabBar {...props} />}
     >
       <Tab.Screen
         name="TabHome"
         component={TabHomeScreen}
-        options={{ tabBarLabel: "Home" }}
+        options={{
+          tabBarLabel: "Home",
+          tabBarIcon: <Image source={require("../assets/home.png")} />,
+        }}
       />
       <Tab.Screen
         name="TabMovieList"
@@ -60,7 +31,10 @@ const MainTab = () => {
       <Tab.Screen
         name="TabDownload"
         component={TabDownload}
-        options={{ tabBarLabel: "Download" }}
+        options={{
+          tabBarLabel: "Download",
+          tabBarIcon: <Image source={require("../assets/downloads.png")} />,
+        }}
       />
     </Tab.Navigator>
   );
