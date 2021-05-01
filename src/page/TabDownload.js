@@ -3,12 +3,12 @@ import { SafeAreaView, Text, View } from "react-native";
 
 // import { Container } from './styles';
 
-const TabHomeScreen = () => {
+const TabMovieList = () => {
   return (
     <SafeAreaView>
-      <Text>Tab home</Text>
+      <Text>TabDownload</Text>
     </SafeAreaView>
   );
 };
 
-export default TabHomeScreen;
+export default TabMovieList;

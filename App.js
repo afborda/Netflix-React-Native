@@ -1,13 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import MainStack from "./src/router/MainStack";
+// import MainStack from "./src/router/MainStack";
+import MainTab from "./src/router/MainTab";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <MainStack />
+      <MainTab />
     </NavigationContainer>
   );
 }
