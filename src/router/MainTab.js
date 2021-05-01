@@ -20,7 +20,6 @@ const MainTab = () => {
         component={TabHomeScreen}
         options={{
           tabBarLabel: "Home",
-          tabBarIcon: <Image source={require("../assets/home.png")} />,
         }}
       />
       <Tab.Screen
@@ -33,7 +32,6 @@ const MainTab = () => {
         component={TabDownload}
         options={{
           tabBarLabel: "Download",
-          tabBarIcon: <Image source={require("../assets/downloads.png")} />,
         }}
       />
     </Tab.Navigator>
