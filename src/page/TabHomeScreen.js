@@ -1,13 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import {
-  FlatList,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
 import GetPopularMovie from "../service/MovieApi/GetMoviePopular";
 import GetTopRated from "../service/MovieApi/GetTopRated";
 

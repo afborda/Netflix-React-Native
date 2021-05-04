@@ -11,10 +11,7 @@ const MainTab = () => {
   const Tab = createBottomTabNavigator();
 
   return (
-    <Tab.Navigator
-      initialRouteName="TabMovieList"
-      tabBar={(props) => <CustomTabBar {...props} />}
-    >
+    <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />}>
       <Tab.Screen
         name="TabHome"
         component={TabHomeScreen}

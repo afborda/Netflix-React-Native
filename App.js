@@ -8,8 +8,7 @@ import MainTab from "./src/router/MainTab";
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <MainStack /> */}
-      <MainTab />
+      <MainStack />
     </NavigationContainer>
   );
 }

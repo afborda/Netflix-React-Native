@@ -4,15 +4,29 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../page/HomeScreen";
 import MovieScreen from "../page/MovieScreen";
 import headerLogo from "../assets/netflix.png";
+import Splash from "../page/Splash";
+import Login from "../page/Login";
+import MainTab from "./MainTab";
 
 const MainStack = createStackNavigator();
 
 export default () => {
   return (
-    <MainStack.Navigator>
+    <MainStack.Navigator initialRouterName="Splash">
       <MainStack.Screen
-        name="Home"
-        component={HomeScreen}
+        options={{ headerShown: false }}
+        name="Splash"
+        component={Splash}
+      />
+      <MainStack.Screen
+        name="Login"
+        options={{ headerShown: false }}
+        component={Login}
+      />
+
+      <MainStack.Screen
+        name="MainTab"
+        component={MainTab}
         options={{
           headerTitle: () => (
             <Image

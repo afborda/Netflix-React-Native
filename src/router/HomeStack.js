@@ -3,12 +3,13 @@ import { Image, TouchableOpacity, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../page/HomeScreen";
 import MovieScreen from "../page/MovieScreen";
+import Splash from "../page/Splash";
 
 const MainStack = createStackNavigator();
 
 export default () => {
   return (
-    <MainStack.Navigator>
+    <MainStack.Navigator initialRouteName={Splash}>
       <MainStack.Screen
         name="Home"
         component={HomeScreen}
