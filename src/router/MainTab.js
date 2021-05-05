@@ -1,11 +1,12 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import TabHomeScreen from "../page/TabHomeScreen";
+import TabHomeScreen from "../page/Home";
 import TabMovieList from "../page/TabMovieList";
 import TabDownload from "../page/TabDownload";
 import CustomTabBar from "../components/CustomTabBar";
 import HomeStack from "./HomeStack";
+import HomeScreen from "../page/HomeScreen";
 
 const MainTab = () => {
   const Tab = createBottomTabNavigator();
@@ -21,7 +22,7 @@ const MainTab = () => {
       />
       <Tab.Screen
         name="TabMovieList"
-        component={HomeStack}
+        component={HomeScreen}
         options={{ tabBarLabel: "Movie" }}
       />
       <Tab.Screen
