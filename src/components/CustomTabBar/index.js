@@ -14,7 +14,6 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
   return (
     <SafeAreaView style={styles.conatiner}>
       {state.routes.map((route, index) => {
-        console.log(route);
         const { options } = descriptors[route.key];
 
         let label = route.name;

@@ -1,5 +1,5 @@
 export const genderType = {
-  0: "Ação",
+  0: "Faroeste",
   1: "Aventura",
   2: "Animação",
   3: "Comédia",
@@ -17,5 +17,5 @@ export const genderType = {
   15: "Cinema TV",
   16: "Thriller",
   17: "Guerra",
-  18: "Faroeste",
+  18: "Ação",
 };

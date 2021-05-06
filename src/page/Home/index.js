@@ -6,6 +6,7 @@ import {
   ScrollView,
   View,
   ActivityIndicator,
+  FlatList,
 } from "react-native";
 
 import GetPopularMovie from "../../service/MovieApi/GetMoviePopular";
@@ -14,11 +15,10 @@ import GetTopRated from "../../service/MovieApi/GetTopRated";
 import { REACT_APP_BASE_IMG } from "@env";
 import CategoryList from "../../components/shared/CategoryList";
 import GetGenresList from "../../service/MovieApi/GetGenresList";
-import GetGenderType from "../../service/MovieApi/GetGenderType";
 import { genderType } from "../../components/shared/utils/enum";
 
 const TabHomeScreen = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [topRated, setTopRated] = useState([]);
   const [recomended, setRecomended] = useState([]);
   const [popularity, setPopularity] = useState([]);
@@ -27,10 +27,10 @@ const TabHomeScreen = () => {
   const [valueTeste, setValueTeste] = useState([]);
 
   const loadGender = async () => {
+    setLoading(true);
     const Array = [];
-
-    const Action = await GetGenresList(28);
-    Array.push(Action.results);
+    const Western = await GetGenresList(37);
+    Array.push(Western.results);
     const Adventure = await GetGenresList(12);
     Array.push(Adventure.results);
     const Animation = await GetGenresList(16);
@@ -65,53 +65,54 @@ const TabHomeScreen = () => {
     Array.push(Thriller.results);
     const War = await GetGenresList(10749);
     Array.push(War.results);
-    const Western = await GetGenresList(37);
-    Array.push(Western.results);
+    const Action = await GetGenresList(28);
+    Array.push(Action.results);
+    setLoading(false);
     setGender(Array);
   };
 
   const loadTopRater = async () => {
-    setLoading(!loading);
     const TopRated = await GetTopRated();
-    const first = TopRated.results[1];
+    const first = TopRated.results[0];
     setRecomended(first);
     setTopRated(TopRated.results);
     const Popularity = await GetPopularMovie();
-    setLoading(!loading);
     setPopularity(Popularity.results);
   };
 
   useEffect(() => {
-    loadGender();
     loadTopRater();
+    loadGender();
   }, []);
 
   return (
     <SafeAreaView>
-      <ScrollView>
-        {loading ? (
+      <ScrollView style={{ backgroundColor: "#000" }}>
+        <View>
           <View>
-            <View>
-              <Image
-                style={{ width: "100%", height: 500 }}
-                source={{
-                  uri: `${REACT_APP_BASE_IMG}${recomended.poster_path}`,
-                }}
-              />
-            </View>
-            <CategoryList data={topRated} title="Top filmes" />
-            <CategoryList data={popularity} title="Populares" />
-            {gender.map((value, index) => (
-              <CategoryList
-                key={index}
-                data={value}
-                title={genderType[index]}
-              />
-            ))}
+            <Image
+              style={{ width: "100%", height: 500 }}
+              source={{
+                uri: `${REACT_APP_BASE_IMG}${recomended.poster_path}`,
+              }}
+            />
           </View>
-        ) : (
-          <ActivityIndicator size="large" color="#E50914" />
-        )}
+          <CategoryList data={topRated} title="Top filmes" />
+          <CategoryList data={popularity} title="Populares" />
+          {loading ? (
+            <ActivityIndicator size="large" color="#E50914" />
+          ) : (
+            <View>
+              {gender.map((value, index) => (
+                <CategoryList
+                  key={index}
+                  data={value}
+                  title={genderType[index]}
+                />
+              ))}
+            </View>
+          )}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
