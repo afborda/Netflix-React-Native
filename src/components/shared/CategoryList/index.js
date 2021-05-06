@@ -1,6 +1,7 @@
 import React from "react";
 import { View, FlatList, Text, Image } from "react-native";
 import { REACT_APP_BASE_IMG } from "@env";
+import GetGenresList from "../../../service/MovieApi/GetGenresList";
 
 // import { Container } from './styles';
 
@@ -24,6 +25,7 @@ const CategoryList = ({ data, title }) => {
   const renderItem = ({ item }) => {
     return <Item value={item} />;
   };
+
   return (
     <View>
       <Text
