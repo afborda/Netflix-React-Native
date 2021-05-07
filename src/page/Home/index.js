@@ -19,18 +19,11 @@ import GetGenresList from "../../service/MovieApi/GetGenresList";
 import { genderType } from "../../components/shared/utils/enum";
 
 const TabHomeScreen = () => {
-  const router = useRoute();
-
   const [loading, setLoading] = useState(true);
   const [topRated, setTopRated] = useState([]);
   const [recomended, setRecomended] = useState([]);
   const [popularity, setPopularity] = useState([]);
   const [gender, setGender] = useState([]);
-  const [valueTeste, setValueTeste] = useState([]);
-
-  const { avatar, nameUser } = router.params;
-
-  console.log(">>>>>>>>>>>", nameUser);
 
   const loadGender = async () => {
     setLoading(true);

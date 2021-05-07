@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const PerfilUser = [
   {
@@ -27,8 +28,11 @@ const PerfilUser = [
 
 const SelectProfile = () => {
   const navigation = useNavigation();
+  const { setValueData, valueData } = useContext(GlobalContext);
 
   const handleClickSelect = (value) => {
+    setValueData(value);
+
     navigation.reset({
       routes: [
         {

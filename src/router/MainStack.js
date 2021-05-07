@@ -1,17 +1,19 @@
 import React from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "../page/HomeScreen";
 import MovieScreen from "../page/MovieScreen";
-import headerLogo from "../assets/netflix.png";
 import Splash from "../page/Splash";
 import Login from "../page/Login";
 import MainTab from "./MainTab";
 import SelectProfile from "../page/SelectProfile";
+import { useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
 
 const MainStack = createStackNavigator();
 
 export default () => {
+  const { setValueData, valueData } = useContext(GlobalContext);
+
   return (
     <MainStack.Navigator initialRouterName="Splash">
       <MainStack.Screen
@@ -58,7 +60,7 @@ export default () => {
               <TouchableOpacity>
                 <Image
                   style={{ width: 19, height: 21 }}
-                  source={require("../assets/imageUser.png")}
+                  source={{ uri: valueData.image }}
                 />
               </TouchableOpacity>
             </View>

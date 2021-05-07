@@ -2,10 +2,8 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import TabHomeScreen from "../page/Home";
-import TabMovieList from "../page/TabMovieList";
 import TabDownload from "../page/TabDownload";
 import CustomTabBar from "../components/CustomTabBar";
-import HomeStack from "./HomeStack";
 import HomeScreen from "../page/HomeScreen";
 
 const MainTab = () => {
