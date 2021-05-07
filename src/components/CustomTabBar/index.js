@@ -14,7 +14,6 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
   return (
     <SafeAreaView style={styles.conatiner}>
       {state.routes.map((route, index) => {
-        console.log(route);
         const { options } = descriptors[route.key];
 
         let label = route.name;
@@ -46,6 +45,12 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               style={styles.tab}
               onPress={handleTapPress}
             >
+              {route.name === "TabHome" ? (
+                <Image source={require("../../assets/home.png")} />
+              ) : (
+                <Image source={require("../../assets/downloads.png")} />
+              )}
+
               <Text style={styles.label}>{label}</Text>
             </TouchableOpacity>
           );
@@ -67,8 +72,9 @@ const styles = StyleSheet.create({
     height: 60,
   },
   label: {
-    fontSize: 16,
+    fontSize: 10,
     color: "#fff",
+    marginTop: 5,
   },
   middleTab: {
     justifyContent: "center",
