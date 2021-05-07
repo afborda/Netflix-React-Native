@@ -21,14 +21,17 @@ const styles = StyleSheet.create({
   area: {
     height: 60,
     width: "100%",
-    backgroundColor: "#ffffff",
     marginVertical: 10,
     justifyContent: "center",
-    borderRadius: 10,
+    alignItems: "center",
   },
   input: {
     padding: 15,
     alignItems: "center",
+    backgroundColor: "#ffffff",
+    height: 60,
+    width: "90%",
+    borderRadius: 8,
   },
 });
 

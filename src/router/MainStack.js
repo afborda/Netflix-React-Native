@@ -7,6 +7,7 @@ import headerLogo from "../assets/netflix.png";
 import Splash from "../page/Splash";
 import Login from "../page/Login";
 import MainTab from "./MainTab";
+import SelectProfile from "../page/SelectProfile";
 
 const MainStack = createStackNavigator();
 
@@ -22,6 +23,12 @@ export default () => {
         name="Login"
         options={{ headerShown: false }}
         component={Login}
+      />
+
+      <MainStack.Screen
+        name="SelectProfile"
+        options={{ headerShown: false }}
+        component={SelectProfile}
       />
 
       <MainStack.Screen

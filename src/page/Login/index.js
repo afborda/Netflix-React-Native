@@ -20,7 +20,7 @@ const Login = () => {
 
   const handleMessageButtonClick = () => {
     navigation.reset({
-      routes: [{ name: "MainTab" }],
+      routes: [{ name: "SelectProfile" }],
     });
   };
 
@@ -67,13 +67,14 @@ const Styles = StyleSheet.create({
     alignItems: "center",
   },
   body: {
+    alignItems: "center",
     width: "100%",
     paddingHorizontal: 10,
   },
   buttom: {
+    width: "90%",
     height: 60,
     backgroundColor: "#E50914",
-    opacity: 0.5,
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
@@ -92,8 +93,8 @@ const Styles = StyleSheet.create({
     fontWeight: "bold",
   },
   conatinerImage: {
-    maxWidth: "100%",
-    maxHeight: 60,
+    width: "100%",
+    height: 60,
     justifyContent: "center",
     alignItems: "center",
   },
