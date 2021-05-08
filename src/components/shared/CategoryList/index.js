@@ -1,14 +1,32 @@
 import React from "react";
-import { View, FlatList, Text, Image } from "react-native";
+import { View, FlatList, Text, Image, TouchableOpacity } from "react-native";
 import { REACT_APP_BASE_IMG } from "@env";
 import GetGenresList from "../../../service/MovieApi/GetGenresList";
+import { useState } from "react";
+import GetMovieDetails from "../../../service/MovieApi/GetMovieDetails";
+import ModalCustom from "../ModalCustom";
 
 // import { Container } from './styles';
 
-const CategoryList = ({ data, title }) => {
+const CategoryList = ({ data, title, show, setShow }) => {
+  const [loading, setLoading] = useState(false);
+  const [details, setDetails] = useState({});
+  const [showModal, setShowModal] = useState(false);
+
+  const getDetailMovie = async (id) => {
+    setLoading(!loading);
+    setShowModal(true);
+    const response = await GetMovieDetails(id);
+    setDetails(response);
+    setLoading(!loading);
+  };
+
   const Item = ({ value }) => {
     return (
-      <View style={{ backgroundColor: "#000000" }}>
+      <TouchableOpacity
+        style={{ backgroundColor: "#000000" }}
+        onPress={() => getDetailMovie(value.id)}
+      >
         <Image
           style={{
             width: 200,
@@ -18,7 +36,7 @@ const CategoryList = ({ data, title }) => {
           }}
           source={{ uri: `${REACT_APP_BASE_IMG}${value.poster_path}` }}
         />
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -45,6 +63,7 @@ const CategoryList = ({ data, title }) => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
+      <ModalCustom show={showModal} setShow={setShowModal} details={details} />
     </View>
   );
 };

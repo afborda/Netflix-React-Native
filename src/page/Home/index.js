@@ -17,6 +17,7 @@ import { REACT_APP_BASE_IMG } from "@env";
 import CategoryList from "../../components/shared/CategoryList";
 import GetGenresList from "../../service/MovieApi/GetGenresList";
 import { genderType } from "../../components/shared/utils/enum";
+import ModalCustom from "../../components/shared/ModalCustom";
 
 const TabHomeScreen = () => {
   const [loading, setLoading] = useState(true);
@@ -24,6 +25,7 @@ const TabHomeScreen = () => {
   const [recomended, setRecomended] = useState([]);
   const [popularity, setPopularity] = useState([]);
   const [gender, setGender] = useState([]);
+  const [details, setDetails] = useState(null);
 
   const loadGender = async () => {
     setLoading(true);
@@ -77,6 +79,11 @@ const TabHomeScreen = () => {
     setTopRated(TopRated.results);
     const Popularity = await GetPopularMovie();
     setPopularity(Popularity.results);
+  };
+
+  const handleServiceChoose = (key) => {
+    setDetails(key);
+    setShowModal(true);
   };
 
   useEffect(() => {
