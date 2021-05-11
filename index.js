@@ -1,5 +1,10 @@
 import { registerRootComponent } from "expo";
 import "react-native-gesture-handler";
+import { YellowBox } from "react-native";
+
+YellowBox.ignoreWarnings(["Warning: ..."]);
+
+console.disableYellowBox = true;
 
 import App from "./App";
 

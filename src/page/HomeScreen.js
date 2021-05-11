@@ -12,7 +12,7 @@ const HomeScreen = () => {
   };
   return (
     <SafeAreaView>
-      <Text>Home</Text>
+      <Text>Homgfhjgfgfghfteste e</Text>
       <Button title="Ir para a tela Movie" onPress={handleMovieClick} />
     </SafeAreaView>
   );
